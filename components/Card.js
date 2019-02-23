@@ -52,7 +52,7 @@ export default class Card extends Component {
         <TouchableOpacity onPress={() => this.flipCard()}>
         <View>
           <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
-            <Image style={{height: '100%', width: '100%'}} source={require('../assets/brick.jpeg')}/>
+            <Image style={{height: '80%', width: '80%'}} source={require('../assets/linux.png')}/>
           </Animated.View>
           <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle]}>
             <Text>{this.props.value}</Text>
@@ -83,11 +83,10 @@ const styles = StyleSheet.create({
       shadowRadius: 2,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'blue',
       backfaceVisibility: 'hidden'
     },
     flipCardBack: {
-      backgroundColor: 'purple',
+      backgroundColor: 'white',
       position: 'absolute',
       backfaceVisibility: 'hidden'
     }

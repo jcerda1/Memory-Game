@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo';
 import Home from './components/Home';
 import Header from './components/Header';
+import Score from './components/Score';
 
 export default class App extends React.Component {
   constructor() {
@@ -19,6 +20,7 @@ export default class App extends React.Component {
           style={styles.gradient}
         />
         <Header/>
+        <Score/>
         <Home cards={this.state.list}/>
       </View>
     );
