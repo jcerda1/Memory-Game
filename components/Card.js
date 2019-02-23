@@ -48,18 +48,16 @@ export default class Card extends Component {
       ]
     };
     return (
-      <View style={styles.card} >
-        <TouchableOpacity onPress={() => this.flipCard()} >
-          <View>
-            <Animated.View style={frontAnimatedStyle}>
-              <Image style={{width: 50, height: 75}} source={require('../assets/penguin.png')}/>
-            </Animated.View>
-            <Animated.View style={[styles.flipCard, backAnimatedStyle]}>
-              <Text>
-                {this.props.value}
-              </Text>
-            </Animated.View>
-          </View>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => this.flipCard()}>
+        <View>
+          <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
+            <Image style={{height: '100%', width: '100%'}} source={require('../assets/brick.jpeg')}/>
+          </Animated.View>
+          <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle]}>
+            <Text>{this.props.value}</Text>
+          </Animated.View>
+        </View>
         </TouchableOpacity>
       </View>
     );
@@ -67,21 +65,30 @@ export default class Card extends Component {
 }
 
 const styles = StyleSheet.create({
-    card: {
+    cardContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    flipCard: {
       borderWidth: 1, 
+      borderColor: 'black',
       backgroundColor: '#EE82EE',
+      width: 75,
+      height: 125,
       margin: 5,
       shadowColor: 'black',
       shadowOffset: {width: 0, height: 2},
       shadowOpacity: 0.8,
       shadowRadius: 2,
-      borderColor: 'black',
-      width: '22%',
-      height: '22%',
-      alignItems:'center',
+      alignItems: 'center',
       justifyContent: 'center',
+      backgroundColor: 'blue',
+      backfaceVisibility: 'hidden'
     },
-    flipCard: {
+    flipCardBack: {
+      backgroundColor: 'purple',
+      position: 'absolute',
       backfaceVisibility: 'hidden'
     }
   });
