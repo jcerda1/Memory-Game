@@ -6,9 +6,9 @@ let Score = (props) => {
   return (
     <View style={style.container} >
         <Text style={style.textBold}>User Name:</Text> 
-        <Text >Jeramiah</Text>
+        <Text >{props.userName}</Text>
         <Text style={style.textBold}>User Score:</Text>
-        <Text>10 points</Text>
+        <Text>{props.score} points</Text>
     </View>
   )
 };
