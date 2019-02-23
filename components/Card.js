@@ -16,11 +16,10 @@ const styles = StyleSheet.create({
     card: {
       borderWidth: 1, 
       borderColor: 'black',
-      width: '50%',
-      height: '33%',
+      width: '25%',
+      height: '25%',
       alignItems:'center',
       justifyContent: 'center',
-      flexBasis: '50%',
     },
   });
 

@@ -8,7 +8,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: ['Block', 'Block', 'Toy', 'Toy','Ball','Ball'],
+      list: ['Block', 'Block', 'Toy', 'Toy','Ball','Ball', 'Car', 'Car','Block', 'Block','Block', 'Block','Block', 'Block','Block', 'Block'],
     }
   }
   render() {
@@ -18,7 +18,7 @@ export default class App extends React.Component {
           colors={['#ff99cc', 'transparent']}
           style={styles.gradient}
         />
-         <Header/>
+        <Header/>
         <Home cards={this.state.list}/>
       </View>
     );
