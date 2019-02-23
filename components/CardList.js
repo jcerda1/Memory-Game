@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap',
-      alignItems: 'stretch'
+      padding: 15,
     },
   });
   

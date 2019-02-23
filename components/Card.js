@@ -15,9 +15,13 @@ let Card = (props) => {
 const styles = StyleSheet.create({
     card: {
       borderWidth: 1, 
+      backgroundColor: '#EE82EE',
+      margin: 5,
+      shadowColor: 'black',
+      shadowOffset: {width: 1, height: 2},
       borderColor: 'black',
-      width: '25%',
-      height: '25%',
+      width: '22%',
+      height: '22%',
       alignItems:'center',
       justifyContent: 'center',
     },
