@@ -1,23 +1,23 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 
 
 
 let Card = (props) => {
   return (
     <View style={styles.card} >
-       <View>
-         <View>
-           <Text>
-             This is the front of the card! 
-           </Text>
-         </View>
-         <View>
-           <Text>
-             {props.value}
-           </Text>
-         </View>
-       </View>
+      <TouchableOpacity >
+        <View>
+          <View>
+            <Image style={{width: 50, height: 75}} source={require('../assets/penguin.png')}/>
+          </View>
+          <View>
+            <Text>
+              {props.value}
+            </Text>
+          </View>
+        </View>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -30,7 +30,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#EE82EE',
       margin: 5,
       shadowColor: 'black',
-      shadowOffset: {width: 1, height: 2},
+      shadowOffset: {width: 0, height: 2},
+      shadowOpacity: 0.8,
+      shadowRadius: 2,
       borderColor: 'black',
       width: '22%',
       height: '22%',
