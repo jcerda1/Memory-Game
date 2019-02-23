@@ -6,10 +6,22 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 let Card = (props) => {
   return (
     <View style={styles.card} >
-      <Text>{props.value}</Text>
+       <View>
+         <View>
+           <Text>
+             This is the front of the card! 
+           </Text>
+         </View>
+         <View>
+           <Text>
+             {props.value}
+           </Text>
+         </View>
+       </View>
     </View>
   )
 }
+
 
 
 const styles = StyleSheet.create({
