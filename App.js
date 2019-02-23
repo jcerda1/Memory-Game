@@ -23,6 +23,7 @@ export default class App extends React.Component {
     if(userName === "") {
       this.setState({userName: "user"})
     } else {
+      userName = userName.slice(0,8)
       this.setState({userName})
     }
   }
