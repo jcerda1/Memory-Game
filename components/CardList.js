@@ -5,9 +5,9 @@ import Card from './Card'
 
 let CardList = (props) => {
   let cards = props.cards;
-  let card = cards.map(item => {
+  let card = cards.map((item,index) => {
     return (
-      <Card value={item} />
+      <Card key={index} value={item} />
     )
   })
   return (
