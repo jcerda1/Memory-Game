@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity, Animated } from 'react
 
 export default class Card extends Component {
   constructor(props) {
-    super() 
+    super(props) 
   }
   componentWillMount() {
     this.animatedValue = new Animated.Value(0);
@@ -49,7 +49,11 @@ export default class Card extends Component {
     };
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => {this.flipCard(), this.props.updateSelection({id: this.props.id, name: this.props.name})}}>
+        <TouchableOpacity onPress={() => {
+            if(this.props.currentSelection.length < 2) {
+              this.flipCard()
+            }
+            this.props.updateSelection({id: this.props.id, name: this.props.name})}}>
         <View>
           <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
             <Image style={{height: '80%', width: '80%'}} source={require('../assets/linux.png')}/>

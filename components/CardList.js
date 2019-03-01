@@ -7,7 +7,7 @@ let CardList = (props) => {
   let cards = props.cards;
   let card = cards.map((item,index) => {
     return (
-      <Card updateSelection={props.updateSelection} key={index} name={item.name} id={item.id}/>
+      <Card currentSelection={props.currentSelection} updateSelection={props.updateSelection} key={index} name={item.name} id={item.id}/>
     )
   })
   return (

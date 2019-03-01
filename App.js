@@ -39,7 +39,7 @@ export default class App extends React.Component {
     let copyOfList = this.state.list.slice();
       copyOfCurrentSelection.push(selection);
       this.setState({currentSelection: copyOfCurrentSelection});
-    if(this.state.currentSelection.length === 2) {
+    if(this.state.currentSelection.length >= 2) {
       if(this.state.currentSelection[0].name === this.state.currentSelection[1].name) {
         for(var i = 0; i < copyOfList.length; i++) {
           if(copyOfList[i].id === this.state.currentSelection[0].id 
@@ -48,6 +48,7 @@ export default class App extends React.Component {
             i = 0;
           }
         }
+        console.log(this.state)
         this.setState({list: copyOfList})
         this.setState({currentSelection: []})
       } else {
@@ -64,7 +65,7 @@ export default class App extends React.Component {
         />
         <Header/>
         <Score userName={this.state.userName} score={this.state.score}/>
-        <Home updateSelection={this.updateSelection} cards={this.state.list}/>
+        <Home currentSelection={this.state.currentSelection} updateSelection={this.updateSelection} cards={this.state.list}/>
       </View>
     );
   }
