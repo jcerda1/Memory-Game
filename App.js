@@ -11,7 +11,13 @@ export default class App extends React.Component {
     this.state = {
       userName: "",
       score: 0,
-      list: ['Block', 'Block', 'Toy', 'Toy','Ball','Ball', 'Car', 'Car','Block', 'Block','Block', 'Block','Block', 'Block','Block', 'Block'],
+      list: [{id: 1, name: 'Block'},{id: 2, name: 'Block'}, {id: 3, name:'Toy'},
+             {id: 4, name:'Toy'},{id: 5, name:'Ball'},{id: 6, name:'Ball'},
+             {id: 7, name: 'Car'}, {id: 8, name:'Car'},{id: 9, name: 'Truck'}, 
+             {id: 10, name:'Truck'},{id: 11, name:'Train'},{id: 12, name: 'Train'},
+             {id: 13, name: 'Ring'},{id: 14, name: 'Ring'},
+             {id: 15, name: 'Dog'},{id: 16, name: 'Dog'}],
+      currentSelection: [],
     }
   }
   componentDidMount() {
@@ -27,6 +33,23 @@ export default class App extends React.Component {
       this.setState({userName})
     }
   }
+  updateSelection(selection) {
+    let copyOfCurrentSelection = this.state.currentSelection.slice();
+    let copyOfList = this.state.list.slice();
+      copyOfCurrentSelection.push(selection);
+      this.setState({currentSelection: copyOfCurrentSelection});
+    if(this.state.currentSelection.length === 2) {
+      if(this.state.currentSelection[0].name === this.state.currentSelection[1].name) {
+        for(var i = 0; i < copyOfList.length; i++) {
+          if(copyOfList[i].id === this.state.currentSelection[0].id || copyOfList[i].id === this.state.currentSelection[1].id) {
+            copyOfList.splice(i, 1)
+          }
+        }
+        this.setState({list: copyOfList})
+        this.setState({currentSelection: []})
+      }
+    }
+  }
   render() {
     console.log(this.state)
     return (
@@ -37,7 +60,7 @@ export default class App extends React.Component {
         />
         <Header/>
         <Score userName={this.state.userName} score={this.state.score}/>
-        <Home cards={this.state.list}/>
+        <Home updateSelection={this.updateSelection} cards={this.state.list}/>
       </View>
     );
   }
