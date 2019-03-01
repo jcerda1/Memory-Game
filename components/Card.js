@@ -49,7 +49,7 @@ export default class Card extends Component {
     };
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => {this.flipCard(), console.log(this.props)}}>
+        <TouchableOpacity onPress={() => {this.flipCard(), this.props.updateSelection({id: this.props.id, name: this.props.name})}}>
         <View>
           <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
             <Image style={{height: '80%', width: '80%'}} source={require('../assets/linux.png')}/>

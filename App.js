@@ -19,6 +19,7 @@ export default class App extends React.Component {
              {id: 15, name: 'Dog'},{id: 16, name: 'Dog'}],
       currentSelection: [],
     }
+    this.updateSelection = this.updateSelection.bind(this);
   }
   componentDidMount() {
     AlertIOS
@@ -41,17 +42,20 @@ export default class App extends React.Component {
     if(this.state.currentSelection.length === 2) {
       if(this.state.currentSelection[0].name === this.state.currentSelection[1].name) {
         for(var i = 0; i < copyOfList.length; i++) {
-          if(copyOfList[i].id === this.state.currentSelection[0].id || copyOfList[i].id === this.state.currentSelection[1].id) {
+          if(copyOfList[i].id === this.state.currentSelection[0].id 
+            || copyOfList[i].id === this.state.currentSelection[1].id) {
             copyOfList.splice(i, 1)
+            i = 0;
           }
         }
         this.setState({list: copyOfList})
+        this.setState({currentSelection: []})
+      } else {
         this.setState({currentSelection: []})
       }
     }
   }
   render() {
-    console.log(this.state)
     return (
       <View style={styles.container}>
         <LinearGradient
