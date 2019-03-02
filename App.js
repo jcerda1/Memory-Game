@@ -20,6 +20,7 @@ export default class App extends React.Component {
       currentSelection: [],
     }
     this.updateSelection = this.updateSelection.bind(this);
+    this.checkIfMatch = this.checkIfMatch.bind(this)
   }
   componentDidMount() {
     AlertIOS
@@ -36,11 +37,14 @@ export default class App extends React.Component {
   }
   updateSelection(selection) {
     let copyOfCurrentSelection = this.state.currentSelection.slice();
-    let copyOfList = this.state.list.slice();
       copyOfCurrentSelection.push(selection);
       this.setState({currentSelection: copyOfCurrentSelection});
+  }
+  checkIfMatch() {
+    let copyOfList = this.state.list.slice();
     if(this.state.currentSelection.length >= 2) {
-      if(this.state.currentSelection[0].name === this.state.currentSelection[1].name) {
+      if(this.state.currentSelection[0].name === this.state.currentSelection[1].name && 
+        this.state.currentSelection[0].id !== this.state.currentSelection[1].id) {
         for(var i = 0; i < copyOfList.length; i++) {
           if(copyOfList[i].id === this.state.currentSelection[0].id 
             || copyOfList[i].id === this.state.currentSelection[1].id) {
@@ -48,7 +52,6 @@ export default class App extends React.Component {
             i = 0;
           }
         }
-        console.log(this.state)
         this.setState({list: copyOfList})
         this.setState({currentSelection: []})
       } else {
@@ -57,6 +60,8 @@ export default class App extends React.Component {
     }
   }
   render() {
+    this.checkIfMatch();
+    console.log('this is state', this.state)
     return (
       <View style={styles.container}>
         <LinearGradient
