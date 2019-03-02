@@ -6,7 +6,7 @@ import CardList  from './CardList';
 let Home = (props) => {
   return (
     <View style={styles.container}>
-     <CardList updateSelection={props.updateSelection} cards={props.cards} />
+     <CardList currentSelection={props.currentSelection} updateSelection={props.updateSelection} cards={props.cards} />
     </View>
   ) 
 }
